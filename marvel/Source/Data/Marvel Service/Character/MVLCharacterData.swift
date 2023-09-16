@@ -43,3 +43,47 @@ struct MVLCharacterData: MVLData, MVLSummaryRepresentable {
     var series: MVLResourceListData?
     
 }
+
+struct MVLCharacterListRequest: Encodable, DictionaryConvertible {
+    
+    /// Return only characters matching the specified full character name (e.g. Spider-Man).
+    var name: String?
+    
+    /// Return characters with names that begin with the specified string (e.g. Sp).
+    var nameStartsWith: String?
+    
+    /// Return only characters which have been modified since the specified date.
+    var modifiedSince: Date?
+    
+    /// Return only characters which appear in the specified comics (accepts a comma-separated list of ids).
+    var comics: Int?
+    
+    /// Return only characters which appear the specified series (accepts a comma-separated list of ids).
+    var series: Int?
+    
+    /// Return only characters which appear in the specified events (accepts a comma-separated list of ids).
+    var events: Int?
+    
+    /// Return only characters which appear the specified stories (accepts a comma-separated list of ids).
+    var stories: Int?
+    
+    /// Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
+    var orderBy: OrderBy?
+    
+    var limit: Int?
+    
+    var offset: Int?
+    
+    enum OrderBy: String, Encodable {
+        case name
+        case modified
+        case descendingName = "-name"
+        case descendingModified = "-modified"
+    }
+}
+
+struct MVLCharacterRequest: Encodable {
+    
+    /// A single character id.
+    var characterId: Int
+}

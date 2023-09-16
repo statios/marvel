@@ -29,6 +29,8 @@
 		F98AD8602AB5936500BFCA64 /* MVLCharacterDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD85F2AB5936500BFCA64 /* MVLCharacterDataRepository.swift */; };
 		F98AD8622AB593EB00BFCA64 /* MVLResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8612AB593EB00BFCA64 /* MVLResult.swift */; };
 		F98AD8642AB5941700BFCA64 /* MVLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8632AB5941700BFCA64 /* MVLData.swift */; };
+		F98AD8692AB5BDE800BFCA64 /* MVLTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8682AB5BDE800BFCA64 /* MVLTargetType.swift */; };
+		F98AD86C2AB5F2B100BFCA64 /* DictionaryConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD86B2AB5F2B100BFCA64 /* DictionaryConvertible.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		F98AD85F2AB5936500BFCA64 /* MVLCharacterDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLCharacterDataRepository.swift; sourceTree = "<group>"; };
 		F98AD8612AB593EB00BFCA64 /* MVLResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLResult.swift; sourceTree = "<group>"; };
 		F98AD8632AB5941700BFCA64 /* MVLData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLData.swift; sourceTree = "<group>"; };
+		F98AD8682AB5BDE800BFCA64 /* MVLTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLTargetType.swift; sourceTree = "<group>"; };
+		F98AD86B2AB5F2B100BFCA64 /* DictionaryConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryConvertible.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 				F98AD8372AB567DF00BFCA64 /* Presentation */,
 				F98AD84B2AB56ED300BFCA64 /* Domain */,
 				F98AD84A2AB56EC900BFCA64 /* Data */,
+				F98AD86A2AB5E91B00BFCA64 /* Utility */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -162,13 +167,11 @@
 		F98AD84F2AB590FF00BFCA64 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F98AD8632AB5941700BFCA64 /* MVLData.swift */,
 				F98AD8502AB5911B00BFCA64 /* MVLURLData.swift */,
 				F98AD8522AB5913400BFCA64 /* MVLTextObjectDataa.swift */,
 				F98AD8542AB5914C00BFCA64 /* MVLResourceListData.swift */,
 				F98AD8562AB5915D00BFCA64 /* MVLImageData.swift */,
-				F98AD8582AB5918400BFCA64 /* MVLSummaryRepresentable.swift */,
-				F98AD8612AB593EB00BFCA64 /* MVLResult.swift */,
-				F98AD8632AB5941700BFCA64 /* MVLData.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -176,10 +179,29 @@
 		F98AD85A2AB5927100BFCA64 /* Marvel Service */ = {
 			isa = PBXGroup;
 			children = (
+				F98AD8652AB5BD1D00BFCA64 /* Component */,
 				F98AD84F2AB590FF00BFCA64 /* Common */,
 				F98AD84C2AB56F6D00BFCA64 /* Character */,
 			);
 			path = "Marvel Service";
+			sourceTree = "<group>";
+		};
+		F98AD8652AB5BD1D00BFCA64 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				F98AD8582AB5918400BFCA64 /* MVLSummaryRepresentable.swift */,
+				F98AD8612AB593EB00BFCA64 /* MVLResult.swift */,
+				F98AD8682AB5BDE800BFCA64 /* MVLTargetType.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		F98AD86A2AB5E91B00BFCA64 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				F98AD86B2AB5F2B100BFCA64 /* DictionaryConvertible.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,11 +287,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F98AD8692AB5BDE800BFCA64 /* MVLTargetType.swift in Sources */,
 				F98AD81E2AB564FD00BFCA64 /* ViewController.swift in Sources */,
 				F98AD8532AB5913400BFCA64 /* MVLTextObjectDataa.swift in Sources */,
 				F98AD8642AB5941700BFCA64 /* MVLData.swift in Sources */,
 				F98AD85C2AB5931900BFCA64 /* MVLCharacterDataSource.swift in Sources */,
 				F98AD84E2AB56F8000BFCA64 /* MVLCharacterData.swift in Sources */,
+				F98AD86C2AB5F2B100BFCA64 /* DictionaryConvertible.swift in Sources */,
 				F98AD8592AB5918400BFCA64 /* MVLSummaryRepresentable.swift in Sources */,
 				F98AD8552AB5914C00BFCA64 /* MVLResourceListData.swift in Sources */,
 				F98AD8622AB593EB00BFCA64 /* MVLResult.swift in Sources */,
