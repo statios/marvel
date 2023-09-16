@@ -1,19 +1,16 @@
 //
-//  ViewController.swift
+//  CharacterListViewController.swift
 //  marvel
 //
 //  Created by stat on 2023/09/16.
 //
 
+import Foundation
 import UIKit
 
-class ViewController: UIViewController {
-
+final class CharacterListViewController: MVLViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
-

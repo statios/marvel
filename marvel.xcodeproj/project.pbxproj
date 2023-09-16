@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F98AD81A2AB564FD00BFCA64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8192AB564FD00BFCA64 /* AppDelegate.swift */; };
 		F98AD81C2AB564FD00BFCA64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD81B2AB564FD00BFCA64 /* SceneDelegate.swift */; };
-		F98AD81E2AB564FD00BFCA64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD81D2AB564FD00BFCA64 /* ViewController.swift */; };
+		F98AD81E2AB564FD00BFCA64 /* MVLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD81D2AB564FD00BFCA64 /* MVLViewController.swift */; };
 		F98AD8212AB564FD00BFCA64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F98AD81F2AB564FD00BFCA64 /* Main.storyboard */; };
 		F98AD8232AB564FF00BFCA64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F98AD8222AB564FF00BFCA64 /* Assets.xcassets */; };
 		F98AD8262AB564FF00BFCA64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F98AD8242AB564FF00BFCA64 /* LaunchScreen.storyboard */; };
@@ -31,13 +31,14 @@
 		F98AD8642AB5941700BFCA64 /* MVLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8632AB5941700BFCA64 /* MVLData.swift */; };
 		F98AD8692AB5BDE800BFCA64 /* MVLTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8682AB5BDE800BFCA64 /* MVLTargetType.swift */; };
 		F98AD86C2AB5F2B100BFCA64 /* DictionaryConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD86B2AB5F2B100BFCA64 /* DictionaryConvertible.swift */; };
+		F98AD8722AB5F52600BFCA64 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8712AB5F52600BFCA64 /* CharacterListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F98AD8162AB564FD00BFCA64 /* marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98AD8192AB564FD00BFCA64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F98AD81B2AB564FD00BFCA64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F98AD81D2AB564FD00BFCA64 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F98AD81D2AB564FD00BFCA64 /* MVLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLViewController.swift; sourceTree = "<group>"; };
 		F98AD8202AB564FD00BFCA64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F98AD8222AB564FF00BFCA64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F98AD8252AB564FF00BFCA64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +56,7 @@
 		F98AD8632AB5941700BFCA64 /* MVLData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLData.swift; sourceTree = "<group>"; };
 		F98AD8682AB5BDE800BFCA64 /* MVLTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLTargetType.swift; sourceTree = "<group>"; };
 		F98AD86B2AB5F2B100BFCA64 /* DictionaryConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryConvertible.swift; sourceTree = "<group>"; };
+		F98AD8712AB5F52600BFCA64 /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				F98AD8222AB564FF00BFCA64 /* Assets.xcassets */,
+				F98AD81F2AB564FD00BFCA64 /* Main.storyboard */,
 				F98AD8242AB564FF00BFCA64 /* LaunchScreen.storyboard */,
 				F98AD8272AB564FF00BFCA64 /* Info.plist */,
 				F98AD8482AB56D2400BFCA64 /* SecretInfo.plist */,
@@ -133,8 +136,8 @@
 		F98AD8372AB567DF00BFCA64 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				F98AD81D2AB564FD00BFCA64 /* ViewController.swift */,
-				F98AD81F2AB564FD00BFCA64 /* Main.storyboard */,
+				F98AD86F2AB5F4FA00BFCA64 /* Component */,
+				F98AD8702AB5F51500BFCA64 /* CharacterList */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -202,6 +205,22 @@
 				F98AD86B2AB5F2B100BFCA64 /* DictionaryConvertible.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		F98AD86F2AB5F4FA00BFCA64 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				F98AD81D2AB564FD00BFCA64 /* MVLViewController.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		F98AD8702AB5F51500BFCA64 /* CharacterList */ = {
+			isa = PBXGroup;
+			children = (
+				F98AD8712AB5F52600BFCA64 /* CharacterListViewController.swift */,
+			);
+			path = CharacterList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,7 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F98AD8692AB5BDE800BFCA64 /* MVLTargetType.swift in Sources */,
-				F98AD81E2AB564FD00BFCA64 /* ViewController.swift in Sources */,
+				F98AD81E2AB564FD00BFCA64 /* MVLViewController.swift in Sources */,
 				F98AD8532AB5913400BFCA64 /* MVLTextObjectDataa.swift in Sources */,
 				F98AD8642AB5941700BFCA64 /* MVLData.swift in Sources */,
 				F98AD85C2AB5931900BFCA64 /* MVLCharacterDataSource.swift in Sources */,
@@ -299,6 +318,7 @@
 				F98AD8622AB593EB00BFCA64 /* MVLResult.swift in Sources */,
 				F98AD81A2AB564FD00BFCA64 /* AppDelegate.swift in Sources */,
 				F98AD81C2AB564FD00BFCA64 /* SceneDelegate.swift in Sources */,
+				F98AD8722AB5F52600BFCA64 /* CharacterListViewController.swift in Sources */,
 				F98AD8602AB5936500BFCA64 /* MVLCharacterDataRepository.swift in Sources */,
 				F98AD8512AB5911B00BFCA64 /* MVLURLData.swift in Sources */,
 				F98AD8572AB5915D00BFCA64 /* MVLImageData.swift in Sources */,
