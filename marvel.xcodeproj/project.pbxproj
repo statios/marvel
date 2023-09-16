@@ -19,6 +19,12 @@
 		F98AD8412AB56B0E00BFCA64 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = F98AD8402AB56B0E00BFCA64 /* Moya */; };
 		F98AD8432AB56B0E00BFCA64 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F98AD8422AB56B0E00BFCA64 /* RxMoya */; };
 		F98AD8492AB56D2400BFCA64 /* SecretInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = F98AD8482AB56D2400BFCA64 /* SecretInfo.plist */; };
+		F98AD84E2AB56F8000BFCA64 /* MVLCharacterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD84D2AB56F8000BFCA64 /* MVLCharacterData.swift */; };
+		F98AD8512AB5911B00BFCA64 /* MVLURLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8502AB5911B00BFCA64 /* MVLURLData.swift */; };
+		F98AD8532AB5913400BFCA64 /* MVLTextObjectDataa.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8522AB5913400BFCA64 /* MVLTextObjectDataa.swift */; };
+		F98AD8552AB5914C00BFCA64 /* MVLResourceListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8542AB5914C00BFCA64 /* MVLResourceListData.swift */; };
+		F98AD8572AB5915D00BFCA64 /* MVLImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8562AB5915D00BFCA64 /* MVLImageData.swift */; };
+		F98AD8592AB5918400BFCA64 /* MVLSummaryDataRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8582AB5918400BFCA64 /* MVLSummaryDataRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +37,12 @@
 		F98AD8252AB564FF00BFCA64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F98AD8272AB564FF00BFCA64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F98AD8482AB56D2400BFCA64 /* SecretInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SecretInfo.plist; sourceTree = "<group>"; };
+		F98AD84D2AB56F8000BFCA64 /* MVLCharacterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLCharacterData.swift; sourceTree = "<group>"; };
+		F98AD8502AB5911B00BFCA64 /* MVLURLData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLURLData.swift; sourceTree = "<group>"; };
+		F98AD8522AB5913400BFCA64 /* MVLTextObjectDataa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLTextObjectDataa.swift; sourceTree = "<group>"; };
+		F98AD8542AB5914C00BFCA64 /* MVLResourceListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLResourceListData.swift; sourceTree = "<group>"; };
+		F98AD8562AB5915D00BFCA64 /* MVLImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLImageData.swift; sourceTree = "<group>"; };
+		F98AD8582AB5918400BFCA64 /* MVLSummaryDataRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLSummaryDataRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +102,8 @@
 			children = (
 				F98AD8362AB567D800BFCA64 /* Application */,
 				F98AD8372AB567DF00BFCA64 /* Presentation */,
+				F98AD84B2AB56ED300BFCA64 /* Domain */,
+				F98AD84A2AB56EC900BFCA64 /* Data */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -110,6 +124,50 @@
 				F98AD81F2AB564FD00BFCA64 /* Main.storyboard */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		F98AD84A2AB56EC900BFCA64 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F98AD85A2AB5927100BFCA64 /* Marvel Service */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F98AD84B2AB56ED300BFCA64 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		F98AD84C2AB56F6D00BFCA64 /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				F98AD84D2AB56F8000BFCA64 /* MVLCharacterData.swift */,
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
+		F98AD84F2AB590FF00BFCA64 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F98AD8502AB5911B00BFCA64 /* MVLURLData.swift */,
+				F98AD8522AB5913400BFCA64 /* MVLTextObjectDataa.swift */,
+				F98AD8542AB5914C00BFCA64 /* MVLResourceListData.swift */,
+				F98AD8562AB5915D00BFCA64 /* MVLImageData.swift */,
+				F98AD8582AB5918400BFCA64 /* MVLSummaryDataRepresentable.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F98AD85A2AB5927100BFCA64 /* Marvel Service */ = {
+			isa = PBXGroup;
+			children = (
+				F98AD84F2AB590FF00BFCA64 /* Common */,
+				F98AD84C2AB56F6D00BFCA64 /* Character */,
+			);
+			path = "Marvel Service";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,8 +254,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F98AD81E2AB564FD00BFCA64 /* ViewController.swift in Sources */,
+				F98AD8532AB5913400BFCA64 /* MVLTextObjectDataa.swift in Sources */,
+				F98AD84E2AB56F8000BFCA64 /* MVLCharacterData.swift in Sources */,
+				F98AD8592AB5918400BFCA64 /* MVLSummaryDataRepresentable.swift in Sources */,
+				F98AD8552AB5914C00BFCA64 /* MVLResourceListData.swift in Sources */,
 				F98AD81A2AB564FD00BFCA64 /* AppDelegate.swift in Sources */,
 				F98AD81C2AB564FD00BFCA64 /* SceneDelegate.swift in Sources */,
+				F98AD8512AB5911B00BFCA64 /* MVLURLData.swift in Sources */,
+				F98AD8572AB5915D00BFCA64 /* MVLImageData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
