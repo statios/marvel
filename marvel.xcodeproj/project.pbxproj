@@ -32,6 +32,7 @@
 		F98AD8692AB5BDE800BFCA64 /* MVLTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8682AB5BDE800BFCA64 /* MVLTargetType.swift */; };
 		F98AD86C2AB5F2B100BFCA64 /* DictionaryConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD86B2AB5F2B100BFCA64 /* DictionaryConvertible.swift */; };
 		F98AD8722AB5F52600BFCA64 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8712AB5F52600BFCA64 /* CharacterListViewController.swift */; };
+		F98AD8752AB5F5FA00BFCA64 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = F98AD8742AB5F5FA00BFCA64 /* ReactorKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 				F98AD83E2AB5694000BFCA64 /* RxSwift in Frameworks */,
 				F98AD83C2AB5694000BFCA64 /* RxRelay in Frameworks */,
 				F98AD8412AB56B0E00BFCA64 /* Moya in Frameworks */,
+				F98AD8752AB5F5FA00BFCA64 /* ReactorKit in Frameworks */,
 				F98AD83A2AB5694000BFCA64 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,6 +247,7 @@
 				F98AD83D2AB5694000BFCA64 /* RxSwift */,
 				F98AD8402AB56B0E00BFCA64 /* Moya */,
 				F98AD8422AB56B0E00BFCA64 /* RxMoya */,
+				F98AD8742AB5F5FA00BFCA64 /* ReactorKit */,
 			);
 			productName = marvel;
 			productReference = F98AD8162AB564FD00BFCA64 /* marvel.app */;
@@ -277,6 +280,7 @@
 			packageReferences = (
 				F98AD8382AB5693F00BFCA64 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				F98AD83F2AB56B0E00BFCA64 /* XCRemoteSwiftPackageReference "Moya" */,
+				F98AD8732AB5F5FA00BFCA64 /* XCRemoteSwiftPackageReference "ReactorKit" */,
 			);
 			productRefGroup = F98AD8172AB564FD00BFCA64 /* Products */;
 			projectDirPath = "";
@@ -565,6 +569,14 @@
 				version = 15.0.3;
 			};
 		};
+		F98AD8732AB5F5FA00BFCA64 /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactorKit/ReactorKit";
+			requirement = {
+				kind = exactVersion;
+				version = 3.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -592,6 +604,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F98AD83F2AB56B0E00BFCA64 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		F98AD8742AB5F5FA00BFCA64 /* ReactorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F98AD8732AB5F5FA00BFCA64 /* XCRemoteSwiftPackageReference "ReactorKit" */;
+			productName = ReactorKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
