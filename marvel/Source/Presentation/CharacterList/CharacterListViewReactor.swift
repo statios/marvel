@@ -29,6 +29,7 @@ class CharacterListViewReactor: Reactor {
     
     enum Mutation {
         case setLoading(Bool)
+        case setSection(any MVLSection)
     }
     
     struct State {
@@ -42,6 +43,7 @@ class CharacterListViewReactor: Reactor {
             guard displayFavoriteSegueButton else { return nil }
             return Context.favorite.title
         }
+        var displaySection: (any MVLSection)?
     }
     
     var initialState: State
@@ -55,8 +57,20 @@ class CharacterListViewReactor: Reactor {
         switch action {
             
         case .load:
+            
+            let section = characterRepository
+                .fetchCharacterList(MVLCharacterListRequest())
+                .map { response in
+                    CharacterListSection(
+                        items: response.results.map { CharacterListItem(resource: $0) }
+                    )
+                }
+                .map { Mutation.setSection($0) }
+            
             return .concat([
-                .just(.setLoading(true))
+                .just(.setLoading(true)),
+                section,
+                .just(.setLoading(false))
             ])
             
         }
@@ -64,10 +78,12 @@ class CharacterListViewReactor: Reactor {
     
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
+        newState.displaySection = nil
         
         switch mutation {
             
         case let .setLoading(loading): newState.displayLoading = loading
+        case let .setSection(section): newState.displaySection = section
         }
         
         return newState

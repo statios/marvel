@@ -35,6 +35,10 @@
 		F98AD8752AB5F5FA00BFCA64 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = F98AD8742AB5F5FA00BFCA64 /* ReactorKit */; };
 		F98AD8772AB5F61E00BFCA64 /* CharacterListViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8762AB5F61E00BFCA64 /* CharacterListViewReactor.swift */; };
 		F9F685B32AB6098900F972DA /* MVLJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F685B22AB6098900F972DA /* MVLJSONDecoder.swift */; };
+		F9F685B52AB615B800F972DA /* MVLSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F685B42AB615B800F972DA /* MVLSection.swift */; };
+		F9F685B82AB62A3C00F972DA /* CharacterListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F685B72AB62A3C00F972DA /* CharacterListSection.swift */; };
+		F9F685BA2AB62AA100F972DA /* MVLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F685B92AB62AA100F972DA /* MVLCell.swift */; };
+		F9F685BD2AB62CA200F972DA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F9F685BC2AB62CA200F972DA /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +66,9 @@
 		F98AD8712AB5F52600BFCA64 /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		F98AD8762AB5F61E00BFCA64 /* CharacterListViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewReactor.swift; sourceTree = "<group>"; };
 		F9F685B22AB6098900F972DA /* MVLJSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLJSONDecoder.swift; sourceTree = "<group>"; };
+		F9F685B42AB615B800F972DA /* MVLSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLSection.swift; sourceTree = "<group>"; };
+		F9F685B72AB62A3C00F972DA /* CharacterListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListSection.swift; sourceTree = "<group>"; };
+		F9F685B92AB62AA100F972DA /* MVLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +78,7 @@
 			files = (
 				F98AD8432AB56B0E00BFCA64 /* RxMoya in Frameworks */,
 				F98AD83E2AB5694000BFCA64 /* RxSwift in Frameworks */,
+				F9F685BD2AB62CA200F972DA /* Kingfisher in Frameworks */,
 				F98AD83C2AB5694000BFCA64 /* RxRelay in Frameworks */,
 				F98AD8412AB56B0E00BFCA64 /* Moya in Frameworks */,
 				F98AD8752AB5F5FA00BFCA64 /* ReactorKit in Frameworks */,
@@ -218,6 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				F98AD81D2AB564FD00BFCA64 /* MVLViewController.swift */,
+				F9F685B42AB615B800F972DA /* MVLSection.swift */,
+				F9F685B92AB62AA100F972DA /* MVLCell.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -225,10 +235,19 @@
 		F98AD8702AB5F51500BFCA64 /* CharacterList */ = {
 			isa = PBXGroup;
 			children = (
+				F9F685B62AB62A3000F972DA /* Component */,
 				F98AD8712AB5F52600BFCA64 /* CharacterListViewController.swift */,
 				F98AD8762AB5F61E00BFCA64 /* CharacterListViewReactor.swift */,
 			);
 			path = CharacterList;
+			sourceTree = "<group>";
+		};
+		F9F685B62AB62A3000F972DA /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				F9F685B72AB62A3C00F972DA /* CharacterListSection.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +273,7 @@
 				F98AD8402AB56B0E00BFCA64 /* Moya */,
 				F98AD8422AB56B0E00BFCA64 /* RxMoya */,
 				F98AD8742AB5F5FA00BFCA64 /* ReactorKit */,
+				F9F685BC2AB62CA200F972DA /* Kingfisher */,
 			);
 			productName = marvel;
 			productReference = F98AD8162AB564FD00BFCA64 /* marvel.app */;
@@ -287,6 +307,7 @@
 				F98AD8382AB5693F00BFCA64 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				F98AD83F2AB56B0E00BFCA64 /* XCRemoteSwiftPackageReference "Moya" */,
 				F98AD8732AB5F5FA00BFCA64 /* XCRemoteSwiftPackageReference "ReactorKit" */,
+				F9F685BB2AB62CA200F972DA /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = F98AD8172AB564FD00BFCA64 /* Products */;
 			projectDirPath = "";
@@ -320,12 +341,14 @@
 				F98AD81E2AB564FD00BFCA64 /* MVLViewController.swift in Sources */,
 				F98AD8532AB5913400BFCA64 /* MVLTextObjectDataa.swift in Sources */,
 				F98AD8642AB5941700BFCA64 /* MVLData.swift in Sources */,
+				F9F685B52AB615B800F972DA /* MVLSection.swift in Sources */,
 				F98AD85C2AB5931900BFCA64 /* MVLCharacterDataSource.swift in Sources */,
 				F98AD84E2AB56F8000BFCA64 /* MVLCharacterData.swift in Sources */,
 				F98AD86C2AB5F2B100BFCA64 /* DictionaryConvertible.swift in Sources */,
 				F98AD8592AB5918400BFCA64 /* MVLSummaryRepresentable.swift in Sources */,
 				F98AD8552AB5914C00BFCA64 /* MVLResourceListData.swift in Sources */,
 				F98AD8622AB593EB00BFCA64 /* MVLResult.swift in Sources */,
+				F9F685B82AB62A3C00F972DA /* CharacterListSection.swift in Sources */,
 				F98AD81A2AB564FD00BFCA64 /* AppDelegate.swift in Sources */,
 				F98AD81C2AB564FD00BFCA64 /* SceneDelegate.swift in Sources */,
 				F9F685B32AB6098900F972DA /* MVLJSONDecoder.swift in Sources */,
@@ -334,6 +357,7 @@
 				F98AD8772AB5F61E00BFCA64 /* CharacterListViewReactor.swift in Sources */,
 				F98AD8512AB5911B00BFCA64 /* MVLURLData.swift in Sources */,
 				F98AD8572AB5915D00BFCA64 /* MVLImageData.swift in Sources */,
+				F9F685BA2AB62AA100F972DA /* MVLCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +609,14 @@
 				version = 3.2.0;
 			};
 		};
+		F9F685BB2AB62CA200F972DA /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = exactVersion;
+				version = 7.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -617,6 +649,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F98AD8732AB5F5FA00BFCA64 /* XCRemoteSwiftPackageReference "ReactorKit" */;
 			productName = ReactorKit;
+		};
+		F9F685BC2AB62CA200F972DA /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9F685BB2AB62CA200F972DA /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

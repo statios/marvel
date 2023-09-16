@@ -12,7 +12,13 @@ import RxCocoa
 
 final class CharacterListViewController: MVLViewController, StoryboardView {
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     @IBOutlet weak var favoriteSegueButton: UIBarButtonItem!
+    
+    override var targetCollectionView: UICollectionView? {
+        return collectionView
+    }
     
     @IBSegueAction func prepareFavoriteSegue(_ coder: NSCoder) -> CharacterListViewController? {
         let viewController = CharacterListViewController(coder: coder)
@@ -49,6 +55,10 @@ final class CharacterListViewController: MVLViewController, StoryboardView {
         reactor.state.map { $0.displayFavoriteSegueButtonTitle }
             .distinctUntilChanged()
             .bind(to: favoriteSegueButton.rx.title)
+            .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.displaySection }
+            .bind(to: rx.section)
             .disposed(by: disposeBag)
     }
 }

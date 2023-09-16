@@ -17,11 +17,15 @@ class MVLCharacterDataRepository {
     
     private var remoteDataSource: MVLCharacterDataSource = MVLCharacterRemoteDataSource()
     
-    func fetchCharacterList(_ request: MVLCharacterListRequest) -> Single<MVLDataContainer<MVLCharacterData>> {
-        return remoteDataSource.fetchCharacterList(request)
+    func fetchCharacterList(_ request: MVLCharacterListRequest) -> Observable<MVLDataContainer<MVLCharacterData>> {
+        return Observable.merge(
+            remoteDataSource.fetchCharacterList(request).asObservable()
+        )
     }
     
-    func fetchCharacter(_ request: MVLCharacterRequest) -> Single<MVLDataContainer<MVLCharacterData>> {
-        return remoteDataSource.fetchCharacter(request)
+    func fetchCharacter(_ request: MVLCharacterRequest) -> Observable<MVLDataContainer<MVLCharacterData>> {
+        return Observable.merge(
+            remoteDataSource.fetchCharacter(request).asObservable()
+        )
     }
 }
