@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MVLURLData {
+struct MVLURLData: MVLData {
     
     /// A text identifier for the URL.
     var type: String

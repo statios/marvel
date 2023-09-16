@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MVLImageData {
+struct MVLImageData: MVLData {
     
     /// The directory path of to the image.
     var path: String

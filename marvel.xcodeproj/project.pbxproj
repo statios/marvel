@@ -24,7 +24,11 @@
 		F98AD8532AB5913400BFCA64 /* MVLTextObjectDataa.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8522AB5913400BFCA64 /* MVLTextObjectDataa.swift */; };
 		F98AD8552AB5914C00BFCA64 /* MVLResourceListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8542AB5914C00BFCA64 /* MVLResourceListData.swift */; };
 		F98AD8572AB5915D00BFCA64 /* MVLImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8562AB5915D00BFCA64 /* MVLImageData.swift */; };
-		F98AD8592AB5918400BFCA64 /* MVLSummaryDataRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8582AB5918400BFCA64 /* MVLSummaryDataRepresentable.swift */; };
+		F98AD8592AB5918400BFCA64 /* MVLSummaryRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8582AB5918400BFCA64 /* MVLSummaryRepresentable.swift */; };
+		F98AD85C2AB5931900BFCA64 /* MVLCharacterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD85B2AB5931900BFCA64 /* MVLCharacterDataSource.swift */; };
+		F98AD8602AB5936500BFCA64 /* MVLCharacterDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD85F2AB5936500BFCA64 /* MVLCharacterDataRepository.swift */; };
+		F98AD8622AB593EB00BFCA64 /* MVLResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8612AB593EB00BFCA64 /* MVLResult.swift */; };
+		F98AD8642AB5941700BFCA64 /* MVLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8632AB5941700BFCA64 /* MVLData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +46,11 @@
 		F98AD8522AB5913400BFCA64 /* MVLTextObjectDataa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLTextObjectDataa.swift; sourceTree = "<group>"; };
 		F98AD8542AB5914C00BFCA64 /* MVLResourceListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLResourceListData.swift; sourceTree = "<group>"; };
 		F98AD8562AB5915D00BFCA64 /* MVLImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLImageData.swift; sourceTree = "<group>"; };
-		F98AD8582AB5918400BFCA64 /* MVLSummaryDataRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLSummaryDataRepresentable.swift; sourceTree = "<group>"; };
+		F98AD8582AB5918400BFCA64 /* MVLSummaryRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLSummaryRepresentable.swift; sourceTree = "<group>"; };
+		F98AD85B2AB5931900BFCA64 /* MVLCharacterDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLCharacterDataSource.swift; sourceTree = "<group>"; };
+		F98AD85F2AB5936500BFCA64 /* MVLCharacterDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLCharacterDataRepository.swift; sourceTree = "<group>"; };
+		F98AD8612AB593EB00BFCA64 /* MVLResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLResult.swift; sourceTree = "<group>"; };
+		F98AD8632AB5941700BFCA64 /* MVLData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				F98AD84D2AB56F8000BFCA64 /* MVLCharacterData.swift */,
+				F98AD85F2AB5936500BFCA64 /* MVLCharacterDataRepository.swift */,
+				F98AD85B2AB5931900BFCA64 /* MVLCharacterDataSource.swift */,
 			);
 			path = Character;
 			sourceTree = "<group>";
@@ -156,7 +166,9 @@
 				F98AD8522AB5913400BFCA64 /* MVLTextObjectDataa.swift */,
 				F98AD8542AB5914C00BFCA64 /* MVLResourceListData.swift */,
 				F98AD8562AB5915D00BFCA64 /* MVLImageData.swift */,
-				F98AD8582AB5918400BFCA64 /* MVLSummaryDataRepresentable.swift */,
+				F98AD8582AB5918400BFCA64 /* MVLSummaryRepresentable.swift */,
+				F98AD8612AB593EB00BFCA64 /* MVLResult.swift */,
+				F98AD8632AB5941700BFCA64 /* MVLData.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -255,11 +267,15 @@
 			files = (
 				F98AD81E2AB564FD00BFCA64 /* ViewController.swift in Sources */,
 				F98AD8532AB5913400BFCA64 /* MVLTextObjectDataa.swift in Sources */,
+				F98AD8642AB5941700BFCA64 /* MVLData.swift in Sources */,
+				F98AD85C2AB5931900BFCA64 /* MVLCharacterDataSource.swift in Sources */,
 				F98AD84E2AB56F8000BFCA64 /* MVLCharacterData.swift in Sources */,
-				F98AD8592AB5918400BFCA64 /* MVLSummaryDataRepresentable.swift in Sources */,
+				F98AD8592AB5918400BFCA64 /* MVLSummaryRepresentable.swift in Sources */,
 				F98AD8552AB5914C00BFCA64 /* MVLResourceListData.swift in Sources */,
+				F98AD8622AB593EB00BFCA64 /* MVLResult.swift in Sources */,
 				F98AD81A2AB564FD00BFCA64 /* AppDelegate.swift in Sources */,
 				F98AD81C2AB564FD00BFCA64 /* SceneDelegate.swift in Sources */,
+				F98AD8602AB5936500BFCA64 /* MVLCharacterDataRepository.swift in Sources */,
 				F98AD8512AB5911B00BFCA64 /* MVLURLData.swift in Sources */,
 				F98AD8572AB5915D00BFCA64 /* MVLImageData.swift in Sources */,
 			);

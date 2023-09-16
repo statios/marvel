@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MVLResourceListData {
+struct MVLResourceListData: MVLData {
     
     /// The number of total available resources in this list
     var available: Int
@@ -19,6 +19,6 @@ struct MVLResourceListData {
     var collectionURI: String
     
     /// A list of summary views of the items in this resource list.
-    var items: [MVLSummaryDataRepresentable]
+    var items: [AnyMVLSummaryRepresentable]
     
 }

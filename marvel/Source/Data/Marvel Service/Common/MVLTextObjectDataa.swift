@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MVLTextObjectData {
+struct MVLTextObjectData: MVLData {
     
     /// The string description of the text object (e.g. solicit text, preview text, etc.).
     var type: String

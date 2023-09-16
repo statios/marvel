@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MVLCharacterData: MVLSummaryDataRepresentable {
+struct MVLCharacterData: MVLData, MVLSummaryRepresentable {
     
     ///The unique ID of the character resource.
     var id: Int
