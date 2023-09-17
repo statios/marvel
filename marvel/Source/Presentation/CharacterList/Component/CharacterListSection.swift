@@ -109,6 +109,7 @@ class CharacterListCell: MVLAttributedCell<CharacterListItem> {
     
     @IBAction func didTapFavoriteButton(_ sender: UIButton) {
         favoriteCharacterUseCase.updateFavoriteCharacter(item.id)
+        notify(event: .favorite)
         reconfigure()
     }
     

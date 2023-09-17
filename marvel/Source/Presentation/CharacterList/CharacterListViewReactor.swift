@@ -32,12 +32,15 @@ class CharacterListViewReactor: Reactor {
     
     enum Action {
         case load, loadMore
+        case selectFavoriteItem(CharacterListItem)
     }
     
     enum Mutation {
         case setLoading(Bool)
         case setSection(any MVLSection)
         case setSectionAppend(CharacterListSection)
+        case setDeleteItems([AnyHashable])
+        case setMoreAlert(MVLAlertItem)
     }
     
     struct State {
@@ -53,6 +56,8 @@ class CharacterListViewReactor: Reactor {
         }
         var displaySection: (any MVLSection)?
         var displaySectionAppend: (CharacterListSection)?
+        var displayDeleteItems: [AnyHashable]?
+        var displayMoreAlert: MVLAlertItem?
     }
     
     var initialState: State
@@ -81,16 +86,23 @@ class CharacterListViewReactor: Reactor {
             guard !currentState.displayLoading else { return .empty()}
             
             if !fetchSectionUseCase.loadMoreAvailable() {
-                return .empty()
+                return Observable.just(.setMoreAlert(.plain("No more items to load.")))
+                    .delay(.milliseconds(500), scheduler: MainScheduler.instance)
             }
             
-            let response = fetchSectionUseCase.loadMoreSection().debug()
+            let response = fetchSectionUseCase.loadMoreSection()
             
             return .concat([
                 .just(.setLoading(true)),
                 response.mapSectionAppendMutation(),
                 .just(.setLoading(false))
             ])
+            
+        case let .selectFavoriteItem(item):
+            
+            guard currentState.context == .favorite else { return .empty() }
+            
+            return .just(.setDeleteItems([item]))
         }
     }
     
@@ -98,12 +110,16 @@ class CharacterListViewReactor: Reactor {
         var newState = state
         newState.displaySection = nil
         newState.displaySectionAppend = nil
+        newState.displayDeleteItems = nil
+        newState.displayMoreAlert = nil
         
         switch mutation {
             
         case let .setLoading(loading): newState.displayLoading = loading
         case let .setSection(section): newState.displaySection = section
         case let .setSectionAppend(section): newState.displaySectionAppend = section
+        case let .setDeleteItems(items): newState.displayDeleteItems = items
+        case let .setMoreAlert(item): newState.displayMoreAlert = item
         }
         
         return newState

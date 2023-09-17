@@ -45,6 +45,12 @@ final class CharacterListViewController: MVLViewController, StoryboardView {
             reactor = .init(initialState: .init(context: .all))
         }
         
+        registerSectionEventHandler(CharacterListSection.self, event: .favorite) { [weak self] item in
+            
+            guard let self else { return }
+            self.reactor?.action.onNext(.selectFavoriteItem(item))
+        }
+        
         reactor?.action.onNext(.load)
     }
     
@@ -82,6 +88,14 @@ final class CharacterListViewController: MVLViewController, StoryboardView {
         
         reactor.state.compactMap { $0.displaySectionAppend }
             .bind(to: rx.sectionAppend)
+            .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.displayDeleteItems }
+            .bind(to: rx.deleteItems)
+            .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.displayMoreAlert }.take(1)
+            .bind(to: rx.alert)
             .disposed(by: disposeBag)
     }
     

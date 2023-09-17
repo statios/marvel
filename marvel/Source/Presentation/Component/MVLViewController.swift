@@ -153,6 +153,11 @@ class MVLViewController: UIViewController {
             )
         }
         
+        applySnapshot(snapshot, animated: animated)
+    }
+    
+    private func applySnapshot(_ snapshot: NSDiffableDataSourceSnapshot<String, AnyHashable>, animated: Bool) {
+        
         isRunningReload = true
         
         needReloadDataSource = false
@@ -209,6 +214,12 @@ class MVLViewController: UIViewController {
     func collectionView(sectionIdentifier: String, willDisplay lastCell: MVLCell) {
         
     }
+    
+    func deleteItems(_ identifiers: [AnyHashable]) {
+        var snapshot = dataSource.snapshot()
+        snapshot.deleteItems(identifiers)
+        applySnapshot(snapshot, animated: true)
+    }
 }
 
 extension MVLViewController: UICollectionViewDelegate {
@@ -241,6 +252,12 @@ extension Reactive where Base: MVLViewController {
     var section: Binder<any MVLSection> {
         Binder(base) { base, newValue in
             base.applySection(newValue)
+        }
+    }
+    
+    var deleteItems: Binder<[AnyHashable]> {
+        Binder(base) { base, newValue in
+            base.deleteItems(newValue)
         }
     }
 }

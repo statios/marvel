@@ -49,6 +49,7 @@
 		F9F685CB2AB6C28E00F972DA /* DefaultDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F685CA2AB6C28E00F972DA /* DefaultDecodable.swift */; };
 		F9FD2E2E2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FD2E2D2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift */; };
 		F9FD2E302AB71BDD0079991B /* FetchCharacterListSectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FD2E2F2AB71BDD0079991B /* FetchCharacterListSectionUseCase.swift */; };
+		F9FD2E342AB740510079991B /* MVLAlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FD2E332AB740510079991B /* MVLAlertItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		F9F685CA2AB6C28E00F972DA /* DefaultDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDecodable.swift; sourceTree = "<group>"; };
 		F9FD2E2D2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageFavoriteCharacterUseCase.swift; sourceTree = "<group>"; };
 		F9FD2E2F2AB71BDD0079991B /* FetchCharacterListSectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCharacterListSectionUseCase.swift; sourceTree = "<group>"; };
+		F9FD2E332AB740510079991B /* MVLAlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLAlertItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +273,7 @@
 				F98AD81D2AB564FD00BFCA64 /* MVLViewController.swift */,
 				F9F685B42AB615B800F972DA /* MVLSection.swift */,
 				F9F685B92AB62AA100F972DA /* MVLCell.swift */,
+				F9FD2E332AB740510079991B /* MVLAlertItem.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				F98AD8692AB5BDE800BFCA64 /* MVLTargetType.swift in Sources */,
 				F951DBF32AB6D96100143FA7 /* CharacterActionDetailSection.swift in Sources */,
 				F98AD81E2AB564FD00BFCA64 /* MVLViewController.swift in Sources */,
+				F9FD2E342AB740510079991B /* MVLAlertItem.swift in Sources */,
 				F9F685C22AB6402100F972DA /* CharacterActionViewReactor.swift in Sources */,
 				F98AD8532AB5913400BFCA64 /* MVLTextObjectDataa.swift in Sources */,
 				F951DBF02AB6D71700143FA7 /* CharacterActionDetailViewReactor.swift in Sources */,

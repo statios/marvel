@@ -14,17 +14,13 @@ protocol FetchCharacterListSectionUseCase {
     func loadMoreAvailable() -> Bool
 }
 
-extension FetchCharacterListSectionUseCase {
-    
-}
-
 class FetchAllCharacterListSectionUseCase: FetchCharacterListSectionUseCase {
     
     private let repository = MVLCharacterDataRepository()
     
-    private var total = 0
+    private var total: Int = .zero
     
-    private var offset = 0
+    private var offset: Int = .zero
     
     private func updatePaginationRelated(_ container: MVLDataContainer<MVLCharacterData>) {
         total = container.total
@@ -74,18 +70,44 @@ class FetchAllCharacterListSectionUseCase: FetchCharacterListSectionUseCase {
 
 class FetchFavoriteCharacterListSectionUseCase: FetchCharacterListSectionUseCase {
     
+    private var favoriteUseCase = ManageFavoriteCharacterUseCase()
+    
     private let repository = MVLCharacterDataRepository()
     
+    private lazy var paginationQueue = favoriteUseCase.fetchFavoriteCharacterList()
+    
+    private func dequeuePaginationItems(_ size: Int) -> [Int] {
+        let result = Array(paginationQueue.prefix(size))
+        paginationQueue.removeFirst(result.count)
+        return result
+    }
+    
+    private var paginationSize: Int {
+        return 20
+    }
+    
     func loadSection() -> Observable<CharacterListSection> {
-        return .never()
+        
+        let responses = dequeuePaginationItems(paginationSize).map {
+            repository.fetchCharacter(MVLCharacterRequest(characterId: $0))
+        }
+        
+        return Observable.zip(responses)
+            .map { characters -> CharacterListSection in
+                let items = characters.compactMap { character -> CharacterListItem? in
+                    guard let resource = character else { return nil }
+                    return CharacterListItem(resource: resource)
+                }
+                return CharacterListSection(items: items)
+            }
     }
     
     func loadMoreSection() -> Observable<CharacterListSection> {
-        return .never()
+        return loadSection()
     }
     
     func loadMoreAvailable() -> Bool {
-        return true
+        return !paginationQueue.isEmpty
     }
 }
 
