@@ -52,7 +52,8 @@ class CharacterActionViewReactor: Reactor {
             return .concat([
                 .just(.setLoading(true)),
                 response.mapTitleMutation(),
-                response.mapSectionMutation(),
+                response.mapThumbnailSectionMutation(),
+                response.mapListSectionMutation(),
                 response.mapWebsiteMutation(),
                 .just(.setLoading(false))
             ])
@@ -87,7 +88,7 @@ fileprivate extension Observable where Element == MVLCharacterData? {
         }
     }
     
-    func mapSectionMutation() -> Observable<Mutation> {
+    func mapThumbnailSectionMutation() -> Observable<Mutation> {
         map { response in
             if let thumbnail = response?.thumbnail {
                 let section = CharacterActionThumbnailSection(
@@ -96,6 +97,21 @@ fileprivate extension Observable where Element == MVLCharacterData? {
                 return Mutation.setSection(section)
             }
             return Mutation.empty
+        }
+    }
+    
+    func mapListSectionMutation() -> Observable<Mutation> {
+        map { response in
+            let items: [CharacterActionListItem] = [("Comics", response?.comics),
+                         ("Stories", response?.stories),
+                         ("Events", response?.events),
+                         ("Series", response?.series)]
+                .compactMap {
+                    guard let resource = $0.1 else { return nil }
+                    return CharacterActionListItem(title: $0.0, resource: resource)
+                }
+            let section = CharacterActionListSection(items: items)
+            return Mutation.setSection(section)
         }
     }
     

@@ -20,6 +20,10 @@ final class CharacterActionViewController: MVLViewController, StoryboardView {
         return collectionView
     }
     
+    override var sectionSpacing: CGFloat {
+        return 1
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

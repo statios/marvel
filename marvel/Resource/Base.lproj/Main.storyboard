@@ -190,14 +190,48 @@
                                             <outlet property="thumbnailImageView" destination="he0-it-hKU" id="b51-hV-ueW"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yrf-JN-zIU">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CharacterActionListCell" id="yrf-JN-zIU" customClass="CharacterActionListCell" customModule="marvel" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="363" width="393" height="94"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="y0H-el-gjJ">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Sm-hA-SO7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMa-2h-Kxe">
+                                                            <rect key="frame" x="16" y="37" width="291" height="20.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ecv-3Y-Hrm">
+                                                            <rect key="frame" x="315" y="37" width="41.333333333333314" height="20.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aGo-FV-etg">
+                                                            <rect key="frame" x="364.33333333333331" y="39" width="12.666666666666686" height="16.666666666666664"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6Sm-hA-SO7" firstAttribute="top" secondItem="y0H-el-gjJ" secondAttribute="top" id="9Yf-xM-ese"/>
+                                                <constraint firstAttribute="trailing" secondItem="6Sm-hA-SO7" secondAttribute="trailing" id="ZZC-JB-Pni"/>
+                                                <constraint firstItem="6Sm-hA-SO7" firstAttribute="leading" secondItem="y0H-el-gjJ" secondAttribute="leading" id="fKn-7L-mb6"/>
+                                                <constraint firstAttribute="bottom" secondItem="6Sm-hA-SO7" secondAttribute="bottom" id="hBg-Tf-oFn"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="393" height="94"/>
+                                        <connections>
+                                            <outlet property="chevronIcon" destination="aGo-FV-etg" id="cFx-sh-3bd"/>
+                                            <outlet property="chevronLabel" destination="Ecv-3Y-Hrm" id="Q0f-I3-ZOV"/>
+                                            <outlet property="titleLabel" destination="sMa-2h-Kxe" id="45p-ob-BLG"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -245,6 +279,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
