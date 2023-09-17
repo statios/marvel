@@ -12,6 +12,7 @@ class MVLViewController: UIViewController {
     
     lazy var disposeBag = DisposeBag()
     
+    private let emptyMessageLabel = UILabel()
     private let loading = UIActivityIndicatorView()
     
     var targetCollectionView: UICollectionView? {
@@ -31,6 +32,12 @@ class MVLViewController: UIViewController {
     private var needReloadDataSource: Bool = true
     
     private var isRunningReload: Bool = false
+    
+    private var sectionEventHandlerStore = [String: (AnyHashable) -> Void]()
+    
+    var emptyMessage: String? {
+        return "No data available."
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +51,27 @@ class MVLViewController: UIViewController {
             loading.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         
+        view.addSubview(emptyMessageLabel)
+        
+        emptyMessageLabel.isHidden = true
+        emptyMessageLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            emptyMessageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyMessageLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
         if let targetCollectionView {
             setup(targetCollectionView)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        viewDidAppearCount += 1
+        
+        if useRefreshCellViewDidAppeared, viewDidAppearCount > 1 {
+            reconfigureVisibleCells()
         }
     }
 
@@ -57,6 +83,12 @@ class MVLViewController: UIViewController {
     func stopLoading() {
         loading.stopAnimating()
     }
+    
+    var useRefreshCellViewDidAppeared: Bool {
+        return false
+    }
+    
+    private(set) var viewDidAppearCount: Int = .zero
     
     private func setup(_ collectionView: UICollectionView) {
         
@@ -85,6 +117,8 @@ class MVLViewController: UIViewController {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: section.cellReuseIdentifier, for: indexPath)
 
             if let cell = cell as? MVLCell {
+                cell.listener = self
+                cell.sectionIdentifier = section.id
                 cell.configure(item: itemIdentifier)
             }
 
@@ -98,10 +132,7 @@ class MVLViewController: UIViewController {
             sc.id == section.id
         })
         
-        if section.items.isEmpty {
-            // Handle empty case here
-        }
-        else {
+        if !section.items.isEmpty {
             sections.append(section)
         }
         
@@ -133,6 +164,11 @@ class MVLViewController: UIViewController {
             )
         }
         
+        applySnapshot(snapshot, animated: animated)
+    }
+    
+    private func applySnapshot(_ snapshot: NSDiffableDataSourceSnapshot<String, AnyHashable>, animated: Bool) {
+        
         isRunningReload = true
         
         needReloadDataSource = false
@@ -145,13 +181,85 @@ class MVLViewController: UIViewController {
             
             if self.needReloadDataSource == true {
                 self.reloadDataSource(animated: true)
+                return
+            }
+            
+            self.displayEmpty(snapshot.itemIdentifiers.isEmpty)
+        }
+    }
+    
+    private func registerSectionEventHandler(
+        _ sectionIdentifier: String,
+        event: MVLSectionEventKey,
+        handler: @escaping (AnyHashable) -> Void
+    ) {
+        let key = generateSectionEventHandlerKey(sectionIdentifier, event: event)
+        sectionEventHandlerStore[key] = handler
+    }
+    
+    final func registerSectionEventHandler<S: MVLSection>(
+        _ sectionType: S.Type,
+        event: MVLSectionEventKey,
+        handler: @escaping (S.Item) -> Void
+    ) {
+        registerSectionEventHandler(S.defaultID, event: event) { anyHashable in
+            if let hashable = anyHashable as? S.Item {
+                handler(hashable)
+            }
+        }
+    }
+    
+    private func generateSectionEventHandlerKey(
+        _ sectionIdentifier: String,
+        event: MVLSectionEventKey
+    ) -> String {
+        return sectionIdentifier + "_" + event.rawValue
+    }
+    
+    final func reconfigureVisibleCells() {
+        guard let targetCollectionView else { return }
+        targetCollectionView.visibleCells.forEach({ cell in
+            if let cell = cell as? MVLCell {
+                cell.reconfigure()
+            }
+        })
+    }
+    
+    func collectionView(sectionIdentifier: String, willDisplay lastCell: MVLCell) {
+        
+    }
+    
+    func deleteItems(_ identifiers: [AnyHashable]) {
+        var snapshot = dataSource.snapshot()
+        snapshot.deleteItems(identifiers)
+        applySnapshot(snapshot, animated: true)
+    }
+    
+    private func displayEmpty(_ visibility: Bool) {
+        view.bringSubviewToFront(emptyMessageLabel)
+        emptyMessageLabel.isHidden = !visibility
+        emptyMessageLabel.text = emptyMessage
+    }
+}
+
+extension MVLViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if collectionView.numberOfItems(inSection: indexPath.section) == indexPath.item + 1 {
+            if let sectionIdentifier = dataSource.sectionIdentifier(for: indexPath.section), let mvlCell = cell as? MVLCell {
+                self.collectionView(sectionIdentifier: sectionIdentifier, willDisplay: mvlCell)
             }
         }
     }
 }
 
-extension MVLViewController: UICollectionViewDelegate {
+extension MVLViewController: MVLSectionEventListener {
     
+    final func didReceive(event: MVLSectionEventKey, sectionIdentifier: String, itemIdentifier: AnyHashable) {
+        
+        let key = generateSectionEventHandlerKey(sectionIdentifier, event: event)
+        
+        sectionEventHandlerStore[key]?(itemIdentifier)
+    }
 }
 
 extension Reactive where Base: MVLViewController {
@@ -164,6 +272,12 @@ extension Reactive where Base: MVLViewController {
     var section: Binder<any MVLSection> {
         Binder(base) { base, newValue in
             base.applySection(newValue)
+        }
+    }
+    
+    var deleteItems: Binder<[AnyHashable]> {
+        Binder(base) { base, newValue in
+            base.deleteItems(newValue)
         }
     }
 }

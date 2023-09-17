@@ -31,7 +31,6 @@ struct CharacterListItem: Hashable {
     var thumbnail: URL?
     var nameText: String
     var bodyText: String
-    var isFavorite: Bool = .random()
     
     init(resource: MVLCharacterData) {
         self.id = resource.id
@@ -69,6 +68,8 @@ class CharacterListCell: MVLAttributedCell<CharacterListItem> {
         return favoriteButton.isSelected ? "star.fill" : "star"
     }
     
+    private let favoriteCharacterUseCase = ManageFavoriteCharacterUseCase()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -100,8 +101,16 @@ class CharacterListCell: MVLAttributedCell<CharacterListItem> {
         
         thumbnailImageView.kf.setImage(with: item.thumbnail)
         nameLabel.text = item.nameText
-        favoriteButton.isSelected = item.isFavorite
+        favoriteButton.isSelected = favoriteCharacterUseCase
+            .fetchFavoriteCharacterList()
+            .contains(item.id)
         bodyLabel.text = item.bodyText
+    }
+    
+    @IBAction func didTapFavoriteButton(_ sender: UIButton) {
+        favoriteCharacterUseCase.updateFavoriteCharacter(item.id)
+        notify(event: .favorite)
+        reconfigure()
     }
     
 }

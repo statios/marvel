@@ -47,6 +47,9 @@
 		F9F685C52AB6442D00F972DA /* CharacterActionThumbnailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F685C42AB6442D00F972DA /* CharacterActionThumbnailSection.swift */; };
 		F9F685C92AB6C19500F972DA /* CharacterActionListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F685C82AB6C19500F972DA /* CharacterActionListSection.swift */; };
 		F9F685CB2AB6C28E00F972DA /* DefaultDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F685CA2AB6C28E00F972DA /* DefaultDecodable.swift */; };
+		F9FD2E2E2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FD2E2D2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift */; };
+		F9FD2E302AB71BDD0079991B /* FetchCharacterListSectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FD2E2F2AB71BDD0079991B /* FetchCharacterListSectionUseCase.swift */; };
+		F9FD2E342AB740510079991B /* MVLAlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FD2E332AB740510079991B /* MVLAlertItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +88,9 @@
 		F9F685C42AB6442D00F972DA /* CharacterActionThumbnailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterActionThumbnailSection.swift; sourceTree = "<group>"; };
 		F9F685C82AB6C19500F972DA /* CharacterActionListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterActionListSection.swift; sourceTree = "<group>"; };
 		F9F685CA2AB6C28E00F972DA /* DefaultDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDecodable.swift; sourceTree = "<group>"; };
+		F9FD2E2D2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageFavoriteCharacterUseCase.swift; sourceTree = "<group>"; };
+		F9FD2E2F2AB71BDD0079991B /* FetchCharacterListSectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCharacterListSectionUseCase.swift; sourceTree = "<group>"; };
+		F9FD2E332AB740510079991B /* MVLAlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVLAlertItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,14 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F951DBEA2AB6D61900143FA7 /* SummaryList */ = {
+		F951DBEA2AB6D61900143FA7 /* CharacterActionDetail */ = {
 			isa = PBXGroup;
 			children = (
 				F951DBF12AB6D95400143FA7 /* Component */,
 				F951DBEB2AB6D66F00143FA7 /* CharacterActionDetailViewController.swift */,
 				F951DBEF2AB6D71700143FA7 /* CharacterActionDetailViewReactor.swift */,
 			);
-			path = SummaryList;
+			path = CharacterActionDetail;
 			sourceTree = "<group>";
 		};
 		F951DBF12AB6D95400143FA7 /* Component */ = {
@@ -187,7 +193,7 @@
 				F98AD86F2AB5F4FA00BFCA64 /* Component */,
 				F98AD8702AB5F51500BFCA64 /* CharacterList */,
 				F9F685BE2AB63FF600F972DA /* CharacterAction */,
-				F951DBEA2AB6D61900143FA7 /* SummaryList */,
+				F951DBEA2AB6D61900143FA7 /* CharacterActionDetail */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -203,6 +209,8 @@
 		F98AD84B2AB56ED300BFCA64 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				F9FD2E2D2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift */,
+				F9FD2E2F2AB71BDD0079991B /* FetchCharacterListSectionUseCase.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -265,6 +273,7 @@
 				F98AD81D2AB564FD00BFCA64 /* MVLViewController.swift */,
 				F9F685B42AB615B800F972DA /* MVLSection.swift */,
 				F9F685B92AB62AA100F972DA /* MVLCell.swift */,
+				F9FD2E332AB740510079991B /* MVLAlertItem.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -396,6 +405,7 @@
 				F98AD8692AB5BDE800BFCA64 /* MVLTargetType.swift in Sources */,
 				F951DBF32AB6D96100143FA7 /* CharacterActionDetailSection.swift in Sources */,
 				F98AD81E2AB564FD00BFCA64 /* MVLViewController.swift in Sources */,
+				F9FD2E342AB740510079991B /* MVLAlertItem.swift in Sources */,
 				F9F685C22AB6402100F972DA /* CharacterActionViewReactor.swift in Sources */,
 				F98AD8532AB5913400BFCA64 /* MVLTextObjectDataa.swift in Sources */,
 				F951DBF02AB6D71700143FA7 /* CharacterActionDetailViewReactor.swift in Sources */,
@@ -411,9 +421,11 @@
 				F98AD8592AB5918400BFCA64 /* MVLSummaryRepresentable.swift in Sources */,
 				F98AD8552AB5914C00BFCA64 /* MVLResourceListData.swift in Sources */,
 				F98AD8622AB593EB00BFCA64 /* MVLResult.swift in Sources */,
+				F9FD2E2E2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift in Sources */,
 				F9F685B82AB62A3C00F972DA /* CharacterListSection.swift in Sources */,
 				F98AD81A2AB564FD00BFCA64 /* AppDelegate.swift in Sources */,
 				F98AD81C2AB564FD00BFCA64 /* SceneDelegate.swift in Sources */,
+				F9FD2E302AB71BDD0079991B /* FetchCharacterListSectionUseCase.swift in Sources */,
 				F951DBEC2AB6D66F00143FA7 /* CharacterActionDetailViewController.swift in Sources */,
 				F9F685B32AB6098900F972DA /* MVLJSONDecoder.swift in Sources */,
 				F98AD8722AB5F52600BFCA64 /* CharacterListViewController.swift in Sources */,

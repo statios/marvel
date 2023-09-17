@@ -15,7 +15,7 @@ protocol MVLSection: Hashable {
     
     var id: String { get }
     
-    var items: [Item] { get }
+    var items: [Item] { get set }
     
     var priority: MVLSectionPriority { get }
     
@@ -40,8 +40,12 @@ protocol MVLSection: Hashable {
 
 extension MVLSection {
     
-    var id: String {
+    static var defaultID: String {
         return String(describing: Self.self)
+    }
+    
+    var id: String {
+        return Self.defaultID
     }
     
     var priority: MVLSectionPriority {
