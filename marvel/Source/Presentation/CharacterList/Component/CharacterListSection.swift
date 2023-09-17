@@ -104,4 +104,7 @@ class CharacterListCell: MVLAttributedCell<CharacterListItem> {
         bodyLabel.text = item.bodyText
     }
     
+    @IBAction func didTapFavoriteButton(_ sender: UIButton) {
+    }
+    
 }

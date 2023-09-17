@@ -8,12 +8,29 @@
 import Foundation
 import UIKit
 
+protocol MVLSectionEventListener: AnyObject {
+    func didReceive(event: MVLSectionEventKey, sectionIdentifier: String, itemIdentifier: AnyHashable)
+}
+
+struct MVLSectionEventKey: Hashable, Equatable, RawRepresentable {
+    let rawValue: String
+
+    static let favorite = MVLSectionEventKey(rawValue: "favorite")
+}
+
 class MVLCell: UICollectionViewCell {
     
+    var sectionIdentifier: String!
     var itemIdentifier: AnyHashable!
+    
+    weak var listener: MVLSectionEventListener?
     
     func configure(item: AnyHashable) {
         self.itemIdentifier = item
+    }
+    
+    final func notify(event: MVLSectionEventKey) {
+        listener?.didReceive(event: event, sectionIdentifier: sectionIdentifier, itemIdentifier: itemIdentifier)
     }
 }
 

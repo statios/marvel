@@ -31,6 +31,8 @@ class MVLViewController: UIViewController {
     private var needReloadDataSource: Bool = true
     
     private var isRunningReload: Bool = false
+    
+    private var sectionEventHandlerStore = [String: (AnyHashable) -> Void]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +87,8 @@ class MVLViewController: UIViewController {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: section.cellReuseIdentifier, for: indexPath)
 
             if let cell = cell as? MVLCell {
+                cell.listener = self
+                cell.sectionIdentifier = section.id
                 cell.configure(item: itemIdentifier)
             }
 
@@ -148,10 +152,48 @@ class MVLViewController: UIViewController {
             }
         }
     }
+    
+    private func registerSectionEventHandler(
+        _ sectionIdentifier: String,
+        event: MVLSectionEventKey,
+        handler: @escaping (AnyHashable) -> Void
+    ) {
+        let key = generateSectionEventHandlerKey(sectionIdentifier, event: event)
+        sectionEventHandlerStore[key] = handler
+    }
+    
+    final func registerSectionEventHandler<S: MVLSection>(
+        _ sectionType: S.Type,
+        event: MVLSectionEventKey,
+        handler: @escaping (S.Item) -> Void
+    ) {
+        registerSectionEventHandler(S.defaultID, event: event) { anyHashable in
+            if let hashable = anyHashable as? S.Item {
+                handler(hashable)
+            }
+        }
+    }
+    
+    private func generateSectionEventHandlerKey(
+        _ sectionIdentifier: String,
+        event: MVLSectionEventKey
+    ) -> String {
+        return sectionIdentifier + "_" + event.rawValue
+    }
 }
 
 extension MVLViewController: UICollectionViewDelegate {
     
+}
+
+extension MVLViewController: MVLSectionEventListener {
+    
+    final func didReceive(event: MVLSectionEventKey, sectionIdentifier: String, itemIdentifier: AnyHashable) {
+        
+        let key = generateSectionEventHandlerKey(sectionIdentifier, event: event)
+        
+        sectionEventHandlerStore[key]?(itemIdentifier)
+    }
 }
 
 extension Reactive where Base: MVLViewController {
