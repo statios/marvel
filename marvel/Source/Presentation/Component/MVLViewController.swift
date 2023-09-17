@@ -12,6 +12,7 @@ class MVLViewController: UIViewController {
     
     lazy var disposeBag = DisposeBag()
     
+    private let emptyMessageLabel = UILabel()
     private let loading = UIActivityIndicatorView()
     
     var targetCollectionView: UICollectionView? {
@@ -33,6 +34,10 @@ class MVLViewController: UIViewController {
     private var isRunningReload: Bool = false
     
     private var sectionEventHandlerStore = [String: (AnyHashable) -> Void]()
+    
+    var emptyMessage: String? {
+        return "No data available."
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +49,15 @@ class MVLViewController: UIViewController {
         NSLayoutConstraint.activate([
             loading.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loading.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+        view.addSubview(emptyMessageLabel)
+        
+        emptyMessageLabel.isHidden = true
+        emptyMessageLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            emptyMessageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyMessageLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         
         if let targetCollectionView {
@@ -118,10 +132,7 @@ class MVLViewController: UIViewController {
             sc.id == section.id
         })
         
-        if section.items.isEmpty {
-            // Handle empty case here
-        }
-        else {
+        if !section.items.isEmpty {
             sections.append(section)
         }
         
@@ -170,7 +181,10 @@ class MVLViewController: UIViewController {
             
             if self.needReloadDataSource == true {
                 self.reloadDataSource(animated: true)
+                return
             }
+            
+            self.displayEmpty(snapshot.itemIdentifiers.isEmpty)
         }
     }
     
@@ -219,6 +233,12 @@ class MVLViewController: UIViewController {
         var snapshot = dataSource.snapshot()
         snapshot.deleteItems(identifiers)
         applySnapshot(snapshot, animated: true)
+    }
+    
+    private func displayEmpty(_ visibility: Bool) {
+        view.bringSubviewToFront(emptyMessageLabel)
+        emptyMessageLabel.isHidden = !visibility
+        emptyMessageLabel.text = emptyMessage
     }
 }
 

@@ -92,6 +92,10 @@ class FetchFavoriteCharacterListSectionUseCase: FetchCharacterListSectionUseCase
             repository.fetchCharacter(MVLCharacterRequest(characterId: $0))
         }
         
+        if responses.isEmpty {
+            return .just(CharacterListSection(items: []))
+        }
+        
         return Observable.zip(responses)
             .map { characters -> CharacterListSection in
                 let items = characters.compactMap { character -> CharacterListItem? in
