@@ -48,6 +48,7 @@
 		F9F685C92AB6C19500F972DA /* CharacterActionListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F685C82AB6C19500F972DA /* CharacterActionListSection.swift */; };
 		F9F685CB2AB6C28E00F972DA /* DefaultDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F685CA2AB6C28E00F972DA /* DefaultDecodable.swift */; };
 		F9FD2E2E2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FD2E2D2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift */; };
+		F9FD2E302AB71BDD0079991B /* FetchCharacterListSectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FD2E2F2AB71BDD0079991B /* FetchCharacterListSectionUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		F9F685C82AB6C19500F972DA /* CharacterActionListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterActionListSection.swift; sourceTree = "<group>"; };
 		F9F685CA2AB6C28E00F972DA /* DefaultDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDecodable.swift; sourceTree = "<group>"; };
 		F9FD2E2D2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageFavoriteCharacterUseCase.swift; sourceTree = "<group>"; };
+		F9FD2E2F2AB71BDD0079991B /* FetchCharacterListSectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCharacterListSectionUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				F9FD2E2D2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift */,
+				F9FD2E2F2AB71BDD0079991B /* FetchCharacterListSectionUseCase.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				F9F685B82AB62A3C00F972DA /* CharacterListSection.swift in Sources */,
 				F98AD81A2AB564FD00BFCA64 /* AppDelegate.swift in Sources */,
 				F98AD81C2AB564FD00BFCA64 /* SceneDelegate.swift in Sources */,
+				F9FD2E302AB71BDD0079991B /* FetchCharacterListSectionUseCase.swift in Sources */,
 				F951DBEC2AB6D66F00143FA7 /* CharacterActionDetailViewController.swift in Sources */,
 				F9F685B32AB6098900F972DA /* MVLJSONDecoder.swift in Sources */,
 				F98AD8722AB5F52600BFCA64 /* CharacterListViewController.swift in Sources */,

@@ -44,7 +44,14 @@ final class CharacterListViewController: MVLViewController, StoryboardView {
         if reactor == nil {
             reactor = .init(initialState: .init(context: .all))
         }
+        
         reactor?.action.onNext(.load)
+    }
+    
+    override func collectionView(sectionIdentifier: String, willDisplay lastCell: MVLCell) {
+        super.collectionView(sectionIdentifier: sectionIdentifier, willDisplay: lastCell)
+        
+        reactor?.action.onNext(.loadMore)
     }
     
     func bind(reactor: CharacterListViewReactor) {
@@ -72,5 +79,23 @@ final class CharacterListViewController: MVLViewController, StoryboardView {
         reactor.state.compactMap { $0.displaySection }
             .bind(to: rx.section)
             .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.displaySectionAppend }
+            .bind(to: rx.sectionAppend)
+            .disposed(by: disposeBag)
+    }
+    
+    fileprivate func appendSection(_ section: CharacterListSection) {
+        guard var newSection = sections.first(where: { $0.id == section.id }) as? CharacterListSection else { return }
+        newSection.items.append(contentsOf: section.items)
+        applySection(newSection)
+    }
+}
+
+extension Reactive where Base: CharacterListViewController {
+    var sectionAppend: Binder<CharacterListSection> {
+        Binder(base) { base, newValue in
+            base.appendSection(newValue)
+        }
     }
 }

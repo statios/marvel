@@ -18,8 +18,12 @@ struct MVLCharacterData: MVLData, MVLSummaryRepresentable {
     ///A short bio or description of the character.
     var description: String?
     
+    /*
+     "modified" : "-0001-11-30T00:00:00-0500"
+     실제 값이 위와 같이 와서 디코딩 에러 발생하는 경우 있으므로 주석처리
+     */
     ///The date the resource was most recently modified.
-    var modified: Date?
+//    var modified: Date?
     
     ///The canonical URL identifier for this resource.
     var resourceURI: String

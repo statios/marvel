@@ -19,8 +19,8 @@ struct MVLCharacterRemoteDataSource: MVLCharacterDataSource {
         
         var path: String {
             switch self {
-            case .characterList: return "/v1/public/characters"
-            case let .character(request): return "/v1/public/characters/\(request.characterId)"
+            case .characterList: return "v1/public/characters"
+            case let .character(request): return "v1/public/characters/\(request.characterId)"
             }
         }
         

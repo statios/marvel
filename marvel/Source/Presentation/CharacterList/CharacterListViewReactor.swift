@@ -10,7 +10,7 @@ import ReactorKit
 
 class CharacterListViewReactor: Reactor {
     
-    private let characterRepository = MVLCharacterDataRepository()
+    private let fetchSectionUseCase: FetchCharacterListSectionUseCase
     
     enum Context {
         case all, favorite
@@ -21,15 +21,23 @@ class CharacterListViewReactor: Reactor {
             case .favorite: return "Favorites"
             }
         }
+        
+        func createSectionFetcher() -> FetchCharacterListSectionUseCase {
+            switch self {
+            case .all: return FetchAllCharacterListSectionUseCase()
+            case .favorite: return FetchFavoriteCharacterListSectionUseCase()
+            }
+        }
     }
     
     enum Action {
-        case load
+        case load, loadMore
     }
     
     enum Mutation {
         case setLoading(Bool)
         case setSection(any MVLSection)
+        case setSectionAppend(CharacterListSection)
     }
     
     struct State {
@@ -44,12 +52,14 @@ class CharacterListViewReactor: Reactor {
             return Context.favorite.title
         }
         var displaySection: (any MVLSection)?
+        var displaySectionAppend: (CharacterListSection)?
     }
     
     var initialState: State
     
     init(initialState: State) {
         self.initialState = initialState
+        self.fetchSectionUseCase = initialState.context.createSectionFetcher()
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -58,34 +68,42 @@ class CharacterListViewReactor: Reactor {
             
         case .load:
             
-            let section = characterRepository
-                .fetchCharacterList(MVLCharacterListRequest())
-                .map { response in
-                    CharacterListSection(
-                        items: response.results.map {
-                            CharacterListItem(resource: $0)
-                        }
-                    )
-                }
-                .map { Mutation.setSection($0) }
+            let response = fetchSectionUseCase.loadSection()
             
             return .concat([
                 .just(.setLoading(true)),
-                section,
+                response.mapSectionMutation(),
                 .just(.setLoading(false))
             ])
             
+        case .loadMore:
+            
+            guard !currentState.displayLoading else { return .empty()}
+            
+            if !fetchSectionUseCase.loadMoreAvailable() {
+                return .empty()
+            }
+            
+            let response = fetchSectionUseCase.loadMoreSection().debug()
+            
+            return .concat([
+                .just(.setLoading(true)),
+                response.mapSectionAppendMutation(),
+                .just(.setLoading(false))
+            ])
         }
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         newState.displaySection = nil
+        newState.displaySectionAppend = nil
         
         switch mutation {
             
         case let .setLoading(loading): newState.displayLoading = loading
         case let .setSection(section): newState.displaySection = section
+        case let .setSectionAppend(section): newState.displaySectionAppend = section
         }
         
         return newState
@@ -93,3 +111,19 @@ class CharacterListViewReactor: Reactor {
     
 }
 
+fileprivate typealias Mutation = CharacterListViewReactor.Mutation
+
+fileprivate extension Observable where Element == CharacterListSection {
+    
+    func mapSectionMutation() -> Observable<Mutation> {
+        return map {
+            return Mutation.setSection($0)
+        }
+    }
+    
+    func mapSectionAppendMutation() -> Observable<Mutation> {
+        return map {
+            return Mutation.setSectionAppend($0)
+        }
+    }
+}
