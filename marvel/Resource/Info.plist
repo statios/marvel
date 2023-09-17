@@ -26,5 +26,7 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Requests access to photos and videos to perform various tasks.</string>
 </dict>
 </plist>
