@@ -105,14 +105,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F951DBEA2AB6D61900143FA7 /* SummaryList */ = {
+		F951DBEA2AB6D61900143FA7 /* CharacterActionDetail */ = {
 			isa = PBXGroup;
 			children = (
 				F951DBF12AB6D95400143FA7 /* Component */,
 				F951DBEB2AB6D66F00143FA7 /* CharacterActionDetailViewController.swift */,
 				F951DBEF2AB6D71700143FA7 /* CharacterActionDetailViewReactor.swift */,
 			);
-			path = SummaryList;
+			path = CharacterActionDetail;
 			sourceTree = "<group>";
 		};
 		F951DBF12AB6D95400143FA7 /* Component */ = {
@@ -187,7 +187,7 @@
 				F98AD86F2AB5F4FA00BFCA64 /* Component */,
 				F98AD8702AB5F51500BFCA64 /* CharacterList */,
 				F9F685BE2AB63FF600F972DA /* CharacterAction */,
-				F951DBEA2AB6D61900143FA7 /* SummaryList */,
+				F951DBEA2AB6D61900143FA7 /* CharacterActionDetail */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
