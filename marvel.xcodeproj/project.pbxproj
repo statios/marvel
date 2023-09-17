@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F951DBEC2AB6D66F00143FA7 /* SummaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F951DBEB2AB6D66F00143FA7 /* SummaryListViewController.swift */; };
+		F951DBF02AB6D71700143FA7 /* SummaryListViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F951DBEF2AB6D71700143FA7 /* SummaryListViewReactor.swift */; };
+		F951DBF32AB6D96100143FA7 /* SummaryListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F951DBF22AB6D96100143FA7 /* SummaryListSection.swift */; };
 		F98AD81A2AB564FD00BFCA64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD8192AB564FD00BFCA64 /* AppDelegate.swift */; };
 		F98AD81C2AB564FD00BFCA64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD81B2AB564FD00BFCA64 /* SceneDelegate.swift */; };
 		F98AD81E2AB564FD00BFCA64 /* MVLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AD81D2AB564FD00BFCA64 /* MVLViewController.swift */; };
@@ -47,6 +50,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F951DBEB2AB6D66F00143FA7 /* SummaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryListViewController.swift; sourceTree = "<group>"; };
+		F951DBEF2AB6D71700143FA7 /* SummaryListViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryListViewReactor.swift; sourceTree = "<group>"; };
+		F951DBF22AB6D96100143FA7 /* SummaryListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryListSection.swift; sourceTree = "<group>"; };
 		F98AD8162AB564FD00BFCA64 /* marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98AD8192AB564FD00BFCA64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F98AD81B2AB564FD00BFCA64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +105,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F951DBEA2AB6D61900143FA7 /* SummaryList */ = {
+			isa = PBXGroup;
+			children = (
+				F951DBF12AB6D95400143FA7 /* Component */,
+				F951DBEB2AB6D66F00143FA7 /* SummaryListViewController.swift */,
+				F951DBEF2AB6D71700143FA7 /* SummaryListViewReactor.swift */,
+			);
+			path = SummaryList;
+			sourceTree = "<group>";
+		};
+		F951DBF12AB6D95400143FA7 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				F951DBF22AB6D96100143FA7 /* SummaryListSection.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		F98AD80D2AB564FD00BFCA64 = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +187,7 @@
 				F98AD86F2AB5F4FA00BFCA64 /* Component */,
 				F98AD8702AB5F51500BFCA64 /* CharacterList */,
 				F9F685BE2AB63FF600F972DA /* CharacterAction */,
+				F951DBEA2AB6D61900143FA7 /* SummaryList */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -369,9 +394,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F98AD8692AB5BDE800BFCA64 /* MVLTargetType.swift in Sources */,
+				F951DBF32AB6D96100143FA7 /* SummaryListSection.swift in Sources */,
 				F98AD81E2AB564FD00BFCA64 /* MVLViewController.swift in Sources */,
 				F9F685C22AB6402100F972DA /* CharacterActionViewReactor.swift in Sources */,
 				F98AD8532AB5913400BFCA64 /* MVLTextObjectDataa.swift in Sources */,
+				F951DBF02AB6D71700143FA7 /* SummaryListViewReactor.swift in Sources */,
 				F9F685C52AB6442D00F972DA /* CharacterActionThumbnailSection.swift in Sources */,
 				F9F685CB2AB6C28E00F972DA /* DefaultDecodable.swift in Sources */,
 				F98AD8642AB5941700BFCA64 /* MVLData.swift in Sources */,
@@ -387,6 +414,7 @@
 				F9F685B82AB62A3C00F972DA /* CharacterListSection.swift in Sources */,
 				F98AD81A2AB564FD00BFCA64 /* AppDelegate.swift in Sources */,
 				F98AD81C2AB564FD00BFCA64 /* SceneDelegate.swift in Sources */,
+				F951DBEC2AB6D66F00143FA7 /* SummaryListViewController.swift in Sources */,
 				F9F685B32AB6098900F972DA /* MVLJSONDecoder.swift in Sources */,
 				F98AD8722AB5F52600BFCA64 /* CharacterListViewController.swift in Sources */,
 				F98AD8602AB5936500BFCA64 /* MVLCharacterDataRepository.swift in Sources */,

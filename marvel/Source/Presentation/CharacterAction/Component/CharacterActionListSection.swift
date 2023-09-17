@@ -26,12 +26,26 @@ struct CharacterActionListSection: MVLSection {
 }
 
 struct CharacterActionListItem: Hashable {
-    var titleText: String
-    var trailingText: String
+    
+    var title: String
+    
+    var trailingText: String {
+        return String(resource.available)
+    }
+    
+    var resource: MVLResourceListData
     
     init(title: String, resource: MVLResourceListData) {
-        self.titleText = title
-        self.trailingText = String(resource.available)
+        self.title = title
+        self.resource = resource
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
+    }
+    
+    static func == (lhs: CharacterActionListItem, rhs: CharacterActionListItem) -> Bool {
+        return lhs.title == rhs.title
     }
 }
 
@@ -53,7 +67,7 @@ class CharacterActionListCell: MVLAttributedCell<CharacterActionListItem> {
     override func configure(item: CharacterActionListItem) {
         super.configure(item: item)
         
-        titleLabel.text = item.titleText
+        titleLabel.text = item.title
         chevronLabel.text = item.trailingText
     }
     
