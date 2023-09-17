@@ -26,6 +26,14 @@ final class CharacterListViewController: MVLViewController, StoryboardView {
         return viewController
     }
     
+    @IBSegueAction func prepareActionSegue(_ coder: NSCoder, sender: Any?) -> CharacterActionViewController? {
+        let viewController = CharacterActionViewController(coder: coder)
+        if let cell = sender as? CharacterListCell {
+            viewController?.reactor = .init(initialState: .init(characterId: cell.item.id))
+        }
+        return viewController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

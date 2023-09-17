@@ -10,7 +10,7 @@ import RxSwift
 
 protocol MVLCharacterDataSource {
     func fetchCharacterList(_ request: MVLCharacterListRequest) -> Single<MVLDataContainer<MVLCharacterData>>
-    func fetchCharacter(_ request: MVLCharacterRequest) -> Single<MVLDataContainer<MVLCharacterData>>
+    func fetchCharacter(_ request: MVLCharacterRequest) -> Single<MVLCharacterData?>
 }
 
 class MVLCharacterDataRepository {
@@ -23,7 +23,7 @@ class MVLCharacterDataRepository {
         )
     }
     
-    func fetchCharacter(_ request: MVLCharacterRequest) -> Observable<MVLDataContainer<MVLCharacterData>> {
+    func fetchCharacter(_ request: MVLCharacterRequest) -> Observable<MVLCharacterData?> {
         return Observable.merge(
             remoteDataSource.fetchCharacter(request).asObservable()
         )

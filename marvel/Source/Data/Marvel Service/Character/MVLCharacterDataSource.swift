@@ -54,9 +54,9 @@ struct MVLCharacterRemoteDataSource: MVLCharacterDataSource {
             .map { $0.data }
     }
     
-    func fetchCharacter(_ request: MVLCharacterRequest) -> Single<MVLDataContainer<MVLCharacterData>> {
+    func fetchCharacter(_ request: MVLCharacterRequest) -> Single<MVLCharacterData?> {
         return provider.rx.request(.character(request))
             .map(MVLResult<MVLCharacterData>.self, using: .MLVJSONDecoder)
-            .map { $0.data }
+            .map { $0.data.results.first }
     }
 }
