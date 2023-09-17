@@ -47,7 +47,9 @@ class CharacterActionViewReactor: Reactor {
         case .load:
             
             let request = MVLCharacterRequest(characterId: currentState.characterId)
-            let response = characterRepository.fetchCharacter(request).share()
+            let response = characterRepository.fetchCharacter(request)
+            
+                .share()
             
             return .concat([
                 .just(.setLoading(true)),

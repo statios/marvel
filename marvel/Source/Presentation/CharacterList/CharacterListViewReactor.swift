@@ -62,7 +62,9 @@ class CharacterListViewReactor: Reactor {
                 .fetchCharacterList(MVLCharacterListRequest())
                 .map { response in
                     CharacterListSection(
-                        items: response.results.map { CharacterListItem(resource: $0) }
+                        items: response.results.map {
+                            CharacterListItem(resource: $0)
+                        }
                     )
                 }
                 .map { Mutation.setSection($0) }

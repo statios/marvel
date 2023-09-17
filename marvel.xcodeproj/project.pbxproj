@@ -47,6 +47,7 @@
 		F9F685C52AB6442D00F972DA /* CharacterActionThumbnailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F685C42AB6442D00F972DA /* CharacterActionThumbnailSection.swift */; };
 		F9F685C92AB6C19500F972DA /* CharacterActionListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F685C82AB6C19500F972DA /* CharacterActionListSection.swift */; };
 		F9F685CB2AB6C28E00F972DA /* DefaultDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F685CA2AB6C28E00F972DA /* DefaultDecodable.swift */; };
+		F9FD2E2E2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FD2E2D2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		F9F685C42AB6442D00F972DA /* CharacterActionThumbnailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterActionThumbnailSection.swift; sourceTree = "<group>"; };
 		F9F685C82AB6C19500F972DA /* CharacterActionListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterActionListSection.swift; sourceTree = "<group>"; };
 		F9F685CA2AB6C28E00F972DA /* DefaultDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDecodable.swift; sourceTree = "<group>"; };
+		F9FD2E2D2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageFavoriteCharacterUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 		F98AD84B2AB56ED300BFCA64 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				F9FD2E2D2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				F98AD8592AB5918400BFCA64 /* MVLSummaryRepresentable.swift in Sources */,
 				F98AD8552AB5914C00BFCA64 /* MVLResourceListData.swift in Sources */,
 				F98AD8622AB593EB00BFCA64 /* MVLResult.swift in Sources */,
+				F9FD2E2E2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift in Sources */,
 				F9F685B82AB62A3C00F972DA /* CharacterListSection.swift in Sources */,
 				F98AD81A2AB564FD00BFCA64 /* AppDelegate.swift in Sources */,
 				F98AD81C2AB564FD00BFCA64 /* SceneDelegate.swift in Sources */,
