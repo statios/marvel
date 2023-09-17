@@ -262,10 +262,10 @@
             </objects>
             <point key="canvasLocation" x="1057.2519083969464" y="734.50704225352115"/>
         </scene>
-        <!--Summary List View Controller-->
+        <!--Character Action Detail View Controller-->
         <scene sceneID="uXh-jC-tv8">
             <objects>
-                <viewController id="a6f-cu-cLq" customClass="SummaryListViewController" customModule="marvel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="a6f-cu-cLq" customClass="CharacterActionDetailViewController" customModule="marvel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0bt-iI-8jl">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -280,7 +280,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SummaryListCell" id="JyI-pF-XYj" customClass="SummaryListCell" customModule="marvel" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CharacterActionDetailCell" id="JyI-pF-XYj" customClass="CharacterActionDetailCell" customModule="marvel" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TNm-Ur-0g4">

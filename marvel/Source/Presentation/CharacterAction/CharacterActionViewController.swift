@@ -24,8 +24,8 @@ final class CharacterActionViewController: MVLViewController, StoryboardView {
         return 1
     }
     
-    @IBSegueAction func prepareSegueSummaryList(_ coder: NSCoder, sender: Any?) -> SummaryListViewController? {
-        let viewController = SummaryListViewController(coder: coder)
+    @IBSegueAction func prepareSegueSummaryList(_ coder: NSCoder, sender: Any?) -> CharacterActionDetailViewController? {
+        let viewController = CharacterActionDetailViewController(coder: coder)
         if let cell = sender as? CharacterActionListCell {
             viewController?.reactor = .init(initialState: .init(resource: cell.item))
         }

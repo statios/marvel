@@ -7,13 +7,13 @@
 
 import UIKit
 
-struct SummaryListSection: MVLSection {
+struct CharacterActionDetailSection: MVLSection {
     
-    typealias Item = SummaryListItem
+    typealias Item = CharacterActionDetailItem
     
-    typealias Cell = SummaryListCell
+    typealias Cell = CharacterActionDetailCell
     
-    var items: [SummaryListItem]
+    var items: [CharacterActionDetailItem]
     
     var spacing: CGFloat {
         return 1
@@ -24,7 +24,7 @@ struct SummaryListSection: MVLSection {
     }
 }
 
-struct SummaryListItem: Hashable {
+struct CharacterActionDetailItem: Hashable {
     
     var id = UUID().uuidString
     var title: String
@@ -34,7 +34,7 @@ struct SummaryListItem: Hashable {
     }
 }
 
-class SummaryListCell: MVLAttributedCell<SummaryListItem> {
+class CharacterActionDetailCell: MVLAttributedCell<CharacterActionDetailItem> {
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -47,7 +47,7 @@ class SummaryListCell: MVLAttributedCell<SummaryListItem> {
         titleLabel.numberOfLines = 2
     }
     
-    override func configure(item: SummaryListItem) {
+    override func configure(item: CharacterActionDetailItem) {
         super.configure(item: item)
         
         titleLabel.text = item.title

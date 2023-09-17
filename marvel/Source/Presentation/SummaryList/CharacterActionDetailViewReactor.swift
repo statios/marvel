@@ -8,7 +8,7 @@
 import Foundation
 import ReactorKit
 
-class SummaryListViewReactor: Reactor {
+class CharacterActionDetailViewReactor: Reactor {
     
     enum Action {
         case load
@@ -39,9 +39,9 @@ class SummaryListViewReactor: Reactor {
             
         case .load:
             let items = currentState.resource.resource.items.map {
-                SummaryListItem(resource: $0)
+                CharacterActionDetailItem(resource: $0)
             }
-            let section = SummaryListSection(items: items)
+            let section = CharacterActionDetailSection(items: items)
             return .just(.setSection(section))
             
         }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import ReactorKit
 
-final class SummaryListViewController: MVLViewController, StoryboardView {
+final class CharacterActionDetailViewController: MVLViewController, StoryboardView {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -23,7 +23,7 @@ final class SummaryListViewController: MVLViewController, StoryboardView {
         reactor?.action.onNext(.load)
     }
     
-    func bind(reactor: SummaryListViewReactor) {
+    func bind(reactor: CharacterActionDetailViewReactor) {
         
         reactor.state.map { $0.displayTitle }
             .bind(to: navigationItem.rx.title)
