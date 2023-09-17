@@ -20,6 +20,10 @@ final class CharacterListViewController: MVLViewController, StoryboardView {
         return collectionView
     }
     
+    override var useRefreshCellViewDidAppeared: Bool {
+        return true
+    }
+    
     @IBSegueAction func prepareFavoriteSegue(_ coder: NSCoder) -> CharacterListViewController? {
         let viewController = CharacterListViewController(coder: coder)
         viewController?.reactor = .init(initialState: .init(context: .favorite))

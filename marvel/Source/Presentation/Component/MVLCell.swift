@@ -32,6 +32,12 @@ class MVLCell: UICollectionViewCell {
     final func notify(event: MVLSectionEventKey) {
         listener?.didReceive(event: event, sectionIdentifier: sectionIdentifier, itemIdentifier: itemIdentifier)
     }
+    
+    final func reconfigure() {
+        if itemIdentifier != .none {
+            configure(item: itemIdentifier)
+        }
+    }
 }
 
 class MVLAttributedCell<Item: Hashable>: MVLCell {
@@ -54,12 +60,6 @@ class MVLAttributedCell<Item: Hashable>: MVLCell {
 
     func configure(item: Item) {
         
-    }
-
-    final func reconfigure() {
-        if itemIdentifier != .none {
-            configure(item: itemIdentifier)
-        }
     }
 
 }

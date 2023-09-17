@@ -50,6 +50,16 @@ class MVLViewController: UIViewController {
             setup(targetCollectionView)
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        viewDidAppearCount += 1
+        
+        if useRefreshCellViewDidAppeared, viewDidAppearCount > 1 {
+            reconfigureVisibleCells()
+        }
+    }
 
     func startLoading() {
         view.bringSubviewToFront(loading)
@@ -59,6 +69,12 @@ class MVLViewController: UIViewController {
     func stopLoading() {
         loading.stopAnimating()
     }
+    
+    var useRefreshCellViewDidAppeared: Bool {
+        return false
+    }
+    
+    private(set) var viewDidAppearCount: Int = .zero
     
     private func setup(_ collectionView: UICollectionView) {
         
@@ -179,6 +195,15 @@ class MVLViewController: UIViewController {
         event: MVLSectionEventKey
     ) -> String {
         return sectionIdentifier + "_" + event.rawValue
+    }
+    
+    final func reconfigureVisibleCells() {
+        guard let targetCollectionView else { return }
+        targetCollectionView.visibleCells.forEach({ cell in
+            if let cell = cell as? MVLCell {
+                cell.reconfigure()
+            }
+        })
     }
 }
 
