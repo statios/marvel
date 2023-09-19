@@ -12,6 +12,10 @@ class CharacterListViewReactor: Reactor {
     
     private let fetchSectionUseCase: FetchCharacterListSectionUseCase
     
+    private var transformErrorUseCase: any TransformPresentationErrorUseCase {
+        return TransformMVLErrorToPresentationErrorUseCase()
+    }
+    
     enum Context {
         case all, favorite
         
@@ -41,6 +45,7 @@ class CharacterListViewReactor: Reactor {
         case setSectionAppend(CharacterListSection)
         case setDeleteItems([AnyHashable])
         case setMoreAlert(MVLAlertItem)
+        case setAlert(MVLAlertItem)
     }
     
     struct State {
@@ -58,6 +63,7 @@ class CharacterListViewReactor: Reactor {
         var displaySectionAppend: (CharacterListSection)?
         var displayDeleteItems: [AnyHashable]?
         var displayMoreAlert: MVLAlertItem?
+        var displayAlert: MVLAlertItem?
     }
     
     var initialState: State
@@ -80,6 +86,7 @@ class CharacterListViewReactor: Reactor {
                 response.mapSectionMutation(),
                 .just(.setLoading(false))
             ])
+            .handleError(transformErrorUseCase)
             
         case .loadMore:
             
@@ -100,6 +107,7 @@ class CharacterListViewReactor: Reactor {
                 response.mapSectionAppendMutation(),
                 .just(.setLoading(false))
             ])
+            .handleError(transformErrorUseCase)
             
         case let .selectFavoriteItem(item):
             
@@ -115,6 +123,7 @@ class CharacterListViewReactor: Reactor {
         newState.displaySectionAppend = nil
         newState.displayDeleteItems = nil
         newState.displayMoreAlert = nil
+        newState.displayAlert = nil
         
         switch mutation {
             
@@ -123,11 +132,11 @@ class CharacterListViewReactor: Reactor {
         case let .setSectionAppend(section): newState.displaySectionAppend = section
         case let .setDeleteItems(items): newState.displayDeleteItems = items
         case let .setMoreAlert(item): newState.displayMoreAlert = item
+        case let .setAlert(item): newState.displayAlert = item
         }
         
         return newState
     }
-    
 }
 
 fileprivate typealias Mutation = CharacterListViewReactor.Mutation
@@ -143,6 +152,27 @@ fileprivate extension Observable where Element == CharacterListSection {
     func mapSectionAppendMutation() -> Observable<Mutation> {
         return map {
             return Mutation.setSectionAppend($0)
+        }
+    }
+}
+
+fileprivate extension Observable where Element == Mutation {
+    
+    func handleError(_ transformer: any TransformPresentationErrorUseCase) -> Observable<Mutation> {
+        
+        self.catch { error in
+            
+            switch transformer.transform(error) {
+                
+            case let .needAlertError(message):
+                return .concat([
+                    .just(.setLoading(false)),
+                    .just(.setAlert(.plain(message)))
+                ])
+                
+            case .noActionRequiredError:
+                return .just(.setLoading(false))
+            }
         }
     }
 }

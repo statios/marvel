@@ -50,13 +50,15 @@ struct MVLCharacterRemoteDataSource: MVLCharacterDataSource {
     
     func fetchCharacterList(_ request: MVLCharacterListRequest) -> Single<MVLDataContainer<MVLCharacterData>> {
         return provider.rx.request(.characterList(request))
-            .map(MVLResult<MVLCharacterData>.self, using: .MLVJSONDecoder)
+            .throwMappedError(MVLError.self, using: .MVLJSONDecoder)
+            .map(MVLResult<MVLCharacterData>.self, using: .MVLJSONDecoder)
             .map { $0.data }
     }
     
     func fetchCharacter(_ request: MVLCharacterRequest) -> Single<MVLCharacterData?> {
         return provider.rx.request(.character(request))
-            .map(MVLResult<MVLCharacterData>.self, using: .MLVJSONDecoder)
+            .throwMappedError(MVLError.self, using: .MVLJSONDecoder)
+            .map(MVLResult<MVLCharacterData>.self, using: .MVLJSONDecoder)
             .map { $0.data.results.first }
     }
 }

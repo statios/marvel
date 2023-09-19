@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F9136DC02AB9EC58008632D6 /* TransformPresentationErrorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9136DBF2AB9EC58008632D6 /* TransformPresentationErrorUseCase.swift */; };
+		F9136DC42AB9F4F1008632D6 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9136DC32AB9F4F1008632D6 /* ErrorHandling.swift */; };
 		F951DBEC2AB6D66F00143FA7 /* CharacterActionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F951DBEB2AB6D66F00143FA7 /* CharacterActionDetailViewController.swift */; };
 		F951DBF02AB6D71700143FA7 /* CharacterActionDetailViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F951DBEF2AB6D71700143FA7 /* CharacterActionDetailViewReactor.swift */; };
 		F951DBF32AB6D96100143FA7 /* CharacterActionDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F951DBF22AB6D96100143FA7 /* CharacterActionDetailSection.swift */; };
@@ -53,6 +55,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F9136DBF2AB9EC58008632D6 /* TransformPresentationErrorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformPresentationErrorUseCase.swift; sourceTree = "<group>"; };
+		F9136DC32AB9F4F1008632D6 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		F951DBEB2AB6D66F00143FA7 /* CharacterActionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterActionDetailViewController.swift; sourceTree = "<group>"; };
 		F951DBEF2AB6D71700143FA7 /* CharacterActionDetailViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterActionDetailViewReactor.swift; sourceTree = "<group>"; };
 		F951DBF22AB6D96100143FA7 /* CharacterActionDetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterActionDetailSection.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 			children = (
 				F9FD2E2D2AB6F70C0079991B /* ManageFavoriteCharacterUseCase.swift */,
 				F9FD2E2F2AB71BDD0079991B /* FetchCharacterListSectionUseCase.swift */,
+				F9136DBF2AB9EC58008632D6 /* TransformPresentationErrorUseCase.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 			children = (
 				F98AD86B2AB5F2B100BFCA64 /* DictionaryConvertible.swift */,
 				F9F685CA2AB6C28E00F972DA /* DefaultDecodable.swift */,
+				F9136DC32AB9F4F1008632D6 /* ErrorHandling.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -418,6 +424,7 @@
 				F98AD84E2AB56F8000BFCA64 /* MVLCharacterData.swift in Sources */,
 				F98AD86C2AB5F2B100BFCA64 /* DictionaryConvertible.swift in Sources */,
 				F9F685C02AB6400A00F972DA /* CharacterActionViewController.swift in Sources */,
+				F9136DC02AB9EC58008632D6 /* TransformPresentationErrorUseCase.swift in Sources */,
 				F98AD8592AB5918400BFCA64 /* MVLSummaryRepresentable.swift in Sources */,
 				F98AD8552AB5914C00BFCA64 /* MVLResourceListData.swift in Sources */,
 				F98AD8622AB593EB00BFCA64 /* MVLResult.swift in Sources */,
@@ -430,6 +437,7 @@
 				F9F685B32AB6098900F972DA /* MVLJSONDecoder.swift in Sources */,
 				F98AD8722AB5F52600BFCA64 /* CharacterListViewController.swift in Sources */,
 				F98AD8602AB5936500BFCA64 /* MVLCharacterDataRepository.swift in Sources */,
+				F9136DC42AB9F4F1008632D6 /* ErrorHandling.swift in Sources */,
 				F98AD8772AB5F61E00BFCA64 /* CharacterListViewReactor.swift in Sources */,
 				F98AD8512AB5911B00BFCA64 /* MVLURLData.swift in Sources */,
 				F98AD8572AB5915D00BFCA64 /* MVLImageData.swift in Sources */,

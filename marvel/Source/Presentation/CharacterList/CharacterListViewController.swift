@@ -97,6 +97,10 @@ final class CharacterListViewController: MVLViewController, StoryboardView {
         reactor.state.compactMap { $0.displayMoreAlert }.take(1)
             .bind(to: rx.alert)
             .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.displayAlert }
+            .bind(to: rx.alert)
+            .disposed(by: disposeBag)
     }
     
     fileprivate func appendSection(_ section: CharacterListSection) {
