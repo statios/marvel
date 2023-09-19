@@ -85,9 +85,12 @@ class CharacterListViewReactor: Reactor {
             
             guard !currentState.displayLoading else { return .empty()}
             
-            if !fetchSectionUseCase.loadMoreAvailable(), currentState.context == .all {
-                return Observable.just(.setMoreAlert(.plain("No more items to load.")))
-                    .delay(.milliseconds(500), scheduler: MainScheduler.asyncInstance)
+            guard fetchSectionUseCase.loadMoreAvailable() else {
+                if currentState.context == .all {
+                    return Observable.just(.setMoreAlert(.plain("No more items to load.")))
+                        .delay(.milliseconds(500), scheduler: MainScheduler.asyncInstance)
+                }
+                return .empty()
             }
             
             let response = fetchSectionUseCase.loadMoreSection()

@@ -246,7 +246,9 @@ extension MVLViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if collectionView.numberOfItems(inSection: indexPath.section) == indexPath.item + 1 {
             if let sectionIdentifier = dataSource.sectionIdentifier(for: indexPath.section), let mvlCell = cell as? MVLCell {
-                self.collectionView(sectionIdentifier: sectionIdentifier, willDisplay: mvlCell)
+                DispatchQueue.main.async {
+                    self.collectionView(sectionIdentifier: sectionIdentifier, willDisplay: mvlCell)
+                }
             }
         }
     }
