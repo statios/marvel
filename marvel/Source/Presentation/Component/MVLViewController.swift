@@ -12,22 +12,27 @@ class MVLViewController: UIViewController {
     
     lazy var disposeBag = DisposeBag()
     
-    private let emptyMessageLabel = UILabel()
-    private let loading = UIActivityIndicatorView()
+    // MARK: Overridable Propoerties
     
     var targetCollectionView: UICollectionView? {
         return nil
     }
     
-    private var configuration = UICollectionViewCompositionalLayoutConfiguration()
-    
-    private var dataSource: UICollectionViewDiffableDataSource<String, AnyHashable>!
-
-    private(set) var sections = [any MVLSection]()
-    
     var sectionSpacing: CGFloat {
         return 16
     }
+    
+    var emptyMessage: String? {
+        return "No data available."
+    }
+    
+    // MARK: Section Related Properties
+    
+    private(set) var sections = [any MVLSection]()
+    
+    private var configuration = UICollectionViewCompositionalLayoutConfiguration()
+    
+    private var dataSource: UICollectionViewDiffableDataSource<String, AnyHashable>!
     
     private var needReloadDataSource: Bool = true
     
@@ -35,9 +40,11 @@ class MVLViewController: UIViewController {
     
     private var sectionEventHandlerStore = [String: (AnyHashable) -> Void]()
     
-    var emptyMessage: String? {
-        return "No data available."
-    }
+    // MARK: UI
+    
+    private let emptyMessageLabel = UILabel()
+    
+    private let loading = UIActivityIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
