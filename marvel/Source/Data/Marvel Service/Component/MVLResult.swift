@@ -47,7 +47,7 @@ struct MVLDataContainer<T: MVLData>: Decodable {
     var results: [T]
 }
 
-struct MVLError: Decodable {
+struct MVLError: DecodableError {
     
     /*
      409    Limit greater than 100.
@@ -57,6 +57,8 @@ struct MVLError: Decodable {
      409    Invalid or unrecognized ordering parameter.
      409    Too many values sent to a multi-value list filter.
      409    Invalid value passed to filter.
+     
+     429    A call rejected for exceeding a rate limit will return an HTTP status code of 429 and an error message indicating that your rate limit has been surpassed.
      */
     
     /// the http status code of the error

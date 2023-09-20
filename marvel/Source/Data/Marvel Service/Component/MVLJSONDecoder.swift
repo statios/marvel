@@ -8,7 +8,7 @@
 import Foundation
 
 extension JSONDecoder {
-    static var MLVJSONDecoder: JSONDecoder {
+    static var MVLJSONDecoder: JSONDecoder {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         return decoder
